@@ -1,0 +1,295 @@
+External Recurrence
+===================
+
+* Alan Baker <alanbaker975@gmail.com>
+
+
+
+
+2016-04-03
+==========
+
+Previous Week's Objectives
+--------------------------
+
+* [OnGoing] Did create an animation for the death of the player but ran into coding problems
+    > I am still tring to figure out a solution to the death animation in the
+        coding
+    > behavior. He dies over and over? 
+
+* [Completed/onGoing] Created the lizard monster to chase the player and the trigger for holding cell
+         6.00h  (6.00h)
+    > Can not seem to get the monster to have a higher hit count
+ 
+* [OnGoing] Created a subboss for the end of level one and added subsection to pyramid
+        5.00h (5.00h)
+    > So far the enemy can not take more than one hit or I get an error 
+
+This Week's Objectives
+----------------------
+
+* Try to figure out the problems im having with enemy AI 6.00h 
+    > I can reduce the health on the main player by using subtraction but it is
+        not working.
+    > I tried swapping the player script on the enemy but no dice.
+    > figure out enemy AI animations
+
+* Add a trigger finish line after beating the sub boss to advance to the next scene          1.00h
+    >  code to add to and box colider
+
+* Create a story scene to transtion from the pyramid to the next part of the story           2.00h
+    > Use the gimip editor to draw it
+
+* Create Level 2 foundation the warehouse where she is hostage 6.00h
+    > Need to look for free building boxs on the web
+
+
+2016-03-14
+==========
+
+Previous Week's Objectives
+
+* [Completed] Created a death animation to go with the death scream for the player
+              2.00h (2.00h) 
+    > The player falls apart in the animation
+
+* [Completed] Created animations for enemy and sync his sound effects 4.00h (2.00h)
+    > The enemy looks more life like
+
+* [Completed/Ongoing] Add background sound for level 1 3.00h (2.00h)
+    > found sound clips from those sites
+
+This Week's Objectives
+----------------------
+
+* Create another type of enemy to chase the player down the cooridor 3.00h
+    > It will look like a chimera 
+
+* Add a trigger to unleash the chimera from a holding cell 2.00h
+    > create a door to the box cell  and add a trigger box
+
+* Add a sublevel and subBoss for the exit of the Pyramid 5.00h
+    > It should be an empty room to fight the subboss make the subboss
+    > tougher to kill the regular enemy
+
+2016-03-06
+==========
+
+Previous Week's Objectives
+--------------------------
+
+* [Completed] Created title screen and story intro. 4.00h (4.00h)
+    > A few scenes pare a bit to much to read. Need to summarize better
+
+* [Completed/OnGoing] Added theme music to the story intro, and added sound effects
+    to the player and enemy 4.00h (4.00h)
+    > The theme music in the intro does not run a continious loop
+    > it restarts between each scene. Need to figure that out
+
+This Week's Objectives
+----------------------
+
+* Create a death animations to go with the death scream for the player 2.00h
+    > use gimp and the animator
+
+* Create animations for the enemy local hire and sync his sound effects 4.00h
+    > use gimp editor and animator
+
+* Add background sound for level 1 3.00h
+    > freesound.org and unity store has free sounds
+
+2016-02-28
+==========
+
+Previous Week's Objectives
+--------------------------
+
+* [Completed] Created an enemy with gimp 3.00h (3.00h)
+    > The enemy has parts that will be animated in the future
+    > Has local looks
+
+* [Ongoing] Actions for the enemy character 4.00h (4.00h)
+    > The character moves and shoots when the player is in range
+
+* [Completed] Created more features for the level 3.00h (3.00h)
+    > The time machine is drawed and has features
+    > The spikes will kill
+
+* [Completed] Created a pop up thought bubble for the character 2.00h (2.00h)
+    > The thought bubble appears with the player hovers over a certain spot
+
+This Week's Objectives
+----------------------
+
+* Create a title screen, create an intro to the story 4.00h 
+    > Using the gimp editor draw the cartoon scenes
+
+* Add sound theme to the cartoon scenes in the begining 4.00h
+    > Browse the web for free sounds
+
+2016-02-21
+=========
+
+Previous Week's Objectives
+--------------------------
+
+* [Completed] Created a foundation for level 1 4.00 h (3.00 h)
+    > There is a layout of a maze using the brick sprites
+    > The background color for inside the pyramid 
+
+* [Completed] Created the main character that has animations to run, jump,
+  and shoot 4.00 h (4.00 h)
+    > The character moves but it is not really fluid enough 
+    > It will take more time to tweak the animations
+
+* [Completed] Added a camera and a camera script to follow the player 1.00 h 
+(1.00 h)
+    > The unity website has a script to add to the camera to follow
+    > Changed some keywords and added comments
+
+* [Ongoing] Motion of the ladder with the character 2.00 h (2.00 h)
+    > Still figuring how to make the transition
+   
+This Week's Objectives
+----------------------
+
+* Create an enemy to with the gimp editor 3.00 h
+    > Look up mexican gurriella trooper pictures
+
+* Add animations to the enemy and have it A.I  4.00 h
+    > Make it shoot and with a prefab bullet and kill the main player
+    > Have him walk back and for
+
+* Create more level 1 features with gimp 3.00 h
+    > Draw the time machine 
+    > Draw some spikes
+
+* Create a pop up thought bubble for the character 2.00 h
+    > This thought bubble will show when the player
+    > walks over the trigger and it will disappears when past
+
+
+2016-02-14
+==========
+
+Previous Week's Objectives
+--------------------------
+
+* [Completed] Created a character in gimp editor 5.00 h (3.00 h)
+    > The character has some animation actions
+    > It is not fluid but looks more alive
+    > Should be tweaked and polished after the working concept
+
+* [Completed/OnGoing] Created a character script to control the character 3.00 h
+                    (5.00h)
+    > Found tutorials on the net for help
+    > The game engine comes with quite a bit of sample scripts
+    > For platform 2d games it is recommended not to use the phyics componet in 
+    unity
+
+This Week's Objectives
+----------------------
+
+* Create a foundation on level_1 4.00 h 
+    > Just a basic outline of the level with brick sprites
+    > Create interesting layout
+    > add the background
+
+* Create the character to have run, jump, and shoot animations 4.00 h
+    > move the pieces of the character in the animation dope sheet
+
+* Create a ladder to climb and have character climb it 3.00 h
+    > Learn how to transition to a ladder motion
+
+* Add a camera script to follow the player in the scene 1.00 h
+    > experiment with different scripts for the right view
+
+
+
+2016-02-07
+==========
+
+Previous Week's Objectives
+--------------------------
+
+* [Completed] Brain storm game ideas 1.00 h (1.00 h)
+    > A science fiction, narrative, adventure, platform game
+    > basic core mechanics is focused
+
+* [OnGoing] Write the script 5.00 h (4.00 h)
+    > The first draft of script is finished
+    > This will be an ongoing process
+    > if I think of better input along the way
+
+* [Completed/Ongoing] Set up the game editor in unity verison update 5.3.1 4.00 h 
+  (2.00 h)
+    > Learning curve of interface and game engine code
+    > will be an ongoing process as well
+
+* [Completed] Research level design editors. 1.00 h (2.00 h)
+  > Read many forms on peoples opinion.
+  > Gonna use unity drag and drop of textures
+  > this will help familliarize unity API
+
+* [Completed/Ongoing] Drew the first level 2.00 h (2.00 h)
+  > first draft looks good for testing 
+  > the character mechanics
+
+This Week's Objectives
+-----------------------
+
+* Look at other sprites and see if I can draw my character in the gimp editor. 
+5.00 h
+  > Figure out the interface of gimp
+  > comb threw sprites on the net
+  > draw a character sprite similar to others
+
+* Research the best way to control 2d sprite in unity 3.00 h
+  > research other people's method's
+  > Unity says there is two methods to control a character
+
+* Research character controller scripts and write a basic script. 5.00 h
+  > Pile scripts from the internet into folder,
+  > and understand the key Componets to get the 
+  > geometry to move in a the scene.
+  > Back track keywords to the manual and try to understand them
+  > and comment code.
+
+
+2016-01-31
+==========
+
+This Week's Objectives
+-----------------------
+
+* Brain storm ideas for games that can be completed within a 16 week semester.
+1.00 h
+    > Write down a list of games that could be fun to play and make
+    > Narrow down on a core genre
+    > Narrow down a game play style
+    
+
+* Write a script for the game. 5.00 h
+    > Write the dialogue
+    > Create characters
+    > The script should say the setting of the game in each scene 
+    
+
+* Setup the Game editor Unity 5.3 version. 4.00 h
+    > It was set up from the past
+    > Update the version
+    > Get fimiliar with the interface
+    > On going research on the built in game engine code
+  
+
+* Research level design editors. 1.00 h
+    > Which ones would be most effective
+    > Check on unity built in level design
+   
+
+* Draw with pencil the first level. 2.00 h
+    > This will be where the main character will start. 
+    > Add enemies in strategic spots
+    > Add enviroment death spots
+    
+
