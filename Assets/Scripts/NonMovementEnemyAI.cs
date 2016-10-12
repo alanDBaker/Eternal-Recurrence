@@ -16,7 +16,7 @@ public class NonMovementEnemyAI : MonoBehaviour
 	public AudioClip EnemyHit;
 	public Animator Animator;
 
-	private int Health {get; set;}
+	public int Health {get; set;}
 	private CharacterController2D _controller;
 	private Vector2 _direction;
 	private float _canFireIn;
