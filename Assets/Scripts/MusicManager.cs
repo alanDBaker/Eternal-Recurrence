@@ -19,5 +19,14 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (scene.name == "Level 2")
+        {
+            Destroy(gameObject);
+        }
+        if (scene.name == "Level 2 Boss")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

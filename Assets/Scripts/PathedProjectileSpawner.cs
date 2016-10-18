@@ -6,19 +6,19 @@ public class PathedProjectileSpawner : MonoBehaviour
     public Transform Destination;
     public PathedProjectile Projectile;
 
-    public float Speed;
-    public float fireRate;
+    public float Speed = 3;
+    public float fireRate = 3;
 
     private float _nextShotInSeconds;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
     {
         _nextShotInSeconds = fireRate;	
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
         if ((_nextShotInSeconds -= Time.deltaTime) > 0)
             return;

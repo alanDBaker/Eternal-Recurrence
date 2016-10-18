@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class CheckPoint : MonoBehaviour
 {
-	private List<IPlayerRespawnListener> _listeners;
+	public List<IPlayerRespawnListener> _listeners;
 
 	public void Awake()
 	{

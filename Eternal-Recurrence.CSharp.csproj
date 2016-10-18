@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GiveDamageToPlayer.cs" />
     <Compile Include="Assets\Scripts\GiveHealth.cs" />
+    <Compile Include="Assets\Scripts\GunTurretShooterAI.cs" />
     <Compile Include="Assets\Scripts\GurrerrillaFighterHealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthBarScorpion.cs" />

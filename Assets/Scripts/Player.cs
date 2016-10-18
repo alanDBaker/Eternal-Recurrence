@@ -66,7 +66,7 @@ public class Player : MonoBehaviour, ITakeDamage
 		// set the linearly interpolates from a to b by time
 		_controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
 
-        Debug.Log(_controller.CanJump);
+        //Debug.Log(_controller.CanJump);
         // params 1: name of the parameter; param2: the new value for the parameter
 		Animator.SetBool("IsGrounded", _controller.State.IsGrounded);
 
