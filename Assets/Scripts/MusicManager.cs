@@ -5,7 +5,7 @@ public class MusicManager : MonoBehaviour
 {
     void Awake()
     {
-        // keep story music going until scene level 1
+        gameObject.SetActive(true);
         DontDestroyOnLoad(transform.gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -13,19 +13,27 @@ public class MusicManager : MonoBehaviour
         
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Debug.Log(mode);
-
+        //Debug.Log(scene);
+        
         if (scene.name == "Level 1")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        if (scene.name == "Level 2")
+        else if (scene.name == "Level 2")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if (scene.name == "Level 2 Boss")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+        if (scene.name == "Story Scene 20")
+        {
+            gameObject.SetActive(false);
+        }
+        if (scene.name == "Level 3")
+        {
+            gameObject.SetActive(false);
         }
 
     }

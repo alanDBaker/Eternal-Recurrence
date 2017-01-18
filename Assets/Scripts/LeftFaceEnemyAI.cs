@@ -114,7 +114,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
 
         if (text == "Player_Bullet")
         {
-            Debug.Log(Health);
+            //Debug.Log(Health);
 
             Health -= Player_BulletDamage;
             //Destroy(other);

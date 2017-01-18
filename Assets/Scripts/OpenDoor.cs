@@ -7,9 +7,9 @@ public class OpenDoor : MonoBehaviour
     {
         string text = other.tag;
 
-        Debug.Log(text);
+        //Debug.Log(text);
 
         if (text == "Player")
-            Destroy(GameObject.FindGameObjectWithTag("LairDoor"));
+            Destroy (GameObject.FindGameObjectWithTag("LairDoor"));
     }
 }

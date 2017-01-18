@@ -153,6 +153,9 @@ public class Player : MonoBehaviour, ITakeDamage
             AudioSource.PlayClipAtPoint(JumpSound, transform.position);
         }
 
+       /* if (_controller.CanJump && Input.GetKeyDown(KeyCode.LeftControl))
+            _controller.EngageJetPack();*/
+
 		if (Input.GetKey(KeyCode.UpArrow))
 			FireProjectile();
     }

@@ -293,7 +293,7 @@ public class CharacterController2D : MonoBehaviour
 			if (!raycastHit)
 				continue;
 
-			if (!isGoingUp)
+			if (! isGoingUp)
 			{
 				var verticalDistanceToHit = _transform.position.y - raycastHit.point.y;
 
