@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class OpenDoor : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class OpenDoor : MonoBehaviour
         //Debug.Log(text);
 
         if (text == "Player")
-            Destroy (GameObject.FindGameObjectWithTag("LairDoor"));
+            Destroy(GameObject.FindGameObjectWithTag("LairDoor"));
+
+        if (text == "Player")
+            Destroy(GameObject.FindGameObjectWithTag("GunShield"));
+
     }
 }

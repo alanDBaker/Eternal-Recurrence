@@ -5,7 +5,7 @@ using System.Collections;
 
 public class CharacterController2D : MonoBehaviour 
 {
-    private float SkinWidth = .02f;
+    private float SkinWidth = .3f;
     private const int TotalHorizontalRays = 8;
     private const int TotalVerticalRays = 4;
 
@@ -15,6 +15,15 @@ public class CharacterController2D : MonoBehaviour
     public ControllerParameters2D DefaultParameters;
     public ControllerState2D State { get; set; }
     public Vector2 Velocity { get {return _velocity;}}
+
+  /*  public bool onLadder
+    {
+        get {
+
+            if (
+                return true;
+        }
+    }i*/
 
     public bool CanJump 
 	{
@@ -208,6 +217,7 @@ public class CharacterController2D : MonoBehaviour
 		for (var i = 1; i < TotalHorizontalRays - 1; i++)
 		{
 			var rayVector = new Vector2(deltaMovement.x + rayOrgin.x, deltaMovement.y +rayOrgin.y + (i * _verticalDistanceBetweenRays));
+
 			//Debug.DrawRay(rayVector, rayDirection * halfWidth, isRight ? Color.cyan : Color.magenta);
 
 			var raycastHit = Physics2D.Raycast(rayVector, rayDirection, halfWidth, PlatformMask);
@@ -224,7 +234,7 @@ public class CharacterController2D : MonoBehaviour
     private void CalculateRayOrgins()
     {
         var size = new Vector2(_boxCollider.size.x * Mathf.Abs(_localScale.x), _boxCollider.size.y * Mathf.Abs(_localScale.y)) / 2 ;
-
+        
         var center = new Vector2(_boxCollider.offset.x * _localScale.x, _boxCollider.offset.y * _localScale.y);
 
         _raycastTopLeft = _transform.position + new Vector3(center.x - size.x + SkinWidth, center.y + size.y - SkinWidth);
@@ -242,6 +252,7 @@ public class CharacterController2D : MonoBehaviour
         for (var i = 0; i < TotalHorizontalRays; i++)
         {
             var rayVector = new Vector2(rayOrgin.x, rayOrgin.y + (i * _verticalDistanceBetweenRays));
+
             //Debug.DrawRay(rayVector, rayDirection * rayDistance, Color.red);
 
             var rayCastHit = Physics2D.Raycast(rayVector, rayDirection, rayDistance, PlatformMask);
@@ -287,7 +298,9 @@ public class CharacterController2D : MonoBehaviour
 		for (var i = 0; i < TotalVerticalRays; i++)
 		{
 			var rayVector = new Vector2(rayOrgin.x + (i * _horizontalDistanceBetweenRays), rayOrgin.y);
+
 			//Debug.DrawRay(rayVector, rayDirection * rayDistance, Color.red);
+
 			var raycastHit = Physics2D.Raycast(rayVector, rayDirection, rayDistance, PlatformMask);
 
 			if (!raycastHit)

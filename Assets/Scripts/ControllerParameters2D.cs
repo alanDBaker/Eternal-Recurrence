@@ -14,6 +14,11 @@ public class ControllerParameters2D
 		CantJump
 	}
 
+    public enum LadderBehavior
+    {
+
+    }
+
     public Vector2 MaxVelocity = new Vector2(float.MaxValue, float.MaxValue);
 
     [Range(0, 90)]

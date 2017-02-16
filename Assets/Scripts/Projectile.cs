@@ -3,7 +3,7 @@
 public abstract class Projectile : MonoBehaviour
 {
 	// interface
-	public float Speed = 25;
+	public float Speed;
 	public LayerMask CollisionMask;
     
 	public GameObject Owner {get; private set;}
@@ -13,7 +13,7 @@ public abstract class Projectile : MonoBehaviour
 	// constructor monoBehaviour can not have 
 	public void Initialize(GameObject owner, Vector2 direction, Vector2 initialVelocity)
 	{
-        transform.right = direction;
+        //Debug.Log(direction);        
 
 		Owner = owner;
 		Direction = direction;

@@ -30,12 +30,12 @@ public class PathedProjectileSpawner : MonoBehaviour
         projectile.Initalize(Destination, Speed);
 	}
 
-    public void OnDrawGizmos()
+   /* public void OnDrawGizmos()
     {
         if (Destination == null)
             return;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, Destination.position);
-    }
+    }*/
 }

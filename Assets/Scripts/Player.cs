@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour, ITakeDamage 
 {
@@ -20,6 +17,10 @@ public class Player : MonoBehaviour, ITakeDamage
 	public AudioClip DeathScream;
 	public AudioClip JumpSound;
 	public Animator Animator = null;
+    public bool OnLadder;
+    public float climbSpeed;
+    private float climbVelocity;
+    private float gravityStore;
 
 	// boilerPlate property for the C# 3.0 compiler. 
 	public int Health {get; private set;}
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour, ITakeDamage
     private CharacterController2D _controller;
     private float _normalizedHorizontalSpeed;
     private float _canFireIn;
+    //private float _normalizedVerticalSpeed;
+    private float movementFactor;
+    private Rigidbody2D myRigidody2D;
 
 
     // initialize variables before game starts; called only once during the lifetime of the script
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour, ITakeDamage
         //Debug.Log(transform.loc);
         // assign full health
 		Health = MaxHealth;
+
+        //gravityStore = myRigidody2D.gravityScale;
     }
 
     // Called every frame, if monoBehavior is enabled
@@ -54,10 +60,12 @@ public class Player : MonoBehaviour, ITakeDamage
 
 		// make sure the player is not dead
 		if (! IsDead)
-			HandleInput();     
+			HandleInput();
+
+       // Debug.Log(_normalizedVerticalSpeed);
 
 		//	if player is on the ground the speed factor is different compared to in the air	
-        var movementFactor = _controller.State.IsGrounded ? SpeedAccelerationOnGround : SpeedAccelerationInAir;
+         movementFactor = _controller.State.IsGrounded ? SpeedAccelerationOnGround : SpeedAccelerationInAir;
 
         // make the player not be able to move if dead
 		if (IsDead)
@@ -66,9 +74,12 @@ public class Player : MonoBehaviour, ITakeDamage
 		// set the linearly interpolates from a to b by time
 		_controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
 
+        //_controller.SetVerticalForce(Mathf.Lerp(_controller.Velocity.y, _normalizedVerticalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
+
+
         //Debug.Log(_controller.CanJump);
         // params 1: name of the parameter; param2: the new value for the parameter
-		Animator.SetBool("IsGrounded", _controller.State.IsGrounded);
+        Animator.SetBool("IsGrounded", _controller.State.IsGrounded);
 
 		//Animator.SetBool ("IsDead", IsDead);
 		Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
@@ -112,7 +123,7 @@ public class Player : MonoBehaviour, ITakeDamage
 		//Instantiate(OuchEffect, transform.position, transform.rotation);
 		Health -= damage;
 
-        Debug.Log(Health);
+        //Debug.Log(Health);
 		if (Health <= 0)
 			LevelManager.Instance.KillPlayer();
 	}
@@ -153,11 +164,34 @@ public class Player : MonoBehaviour, ITakeDamage
             AudioSource.PlayClipAtPoint(JumpSound, transform.position);
         }
 
+      /* if (OnLadder)
+        {
+            myRigidody2D.gravityScale = 0f;
+
+            climbVelocity = climbSpeed * Input.GetAxisRaw("Vertical");
+
+            myRigidody2D.velocity = new Vector2(myRigidody2D.velocity.x, climbSpeed);
+        }
+
+       if (! OnLadder)
+        {
+            myRigidody2D.gravityScale = gravityStore;
+        }*/
+    
+
        /* if (_controller.CanJump && Input.GetKeyDown(KeyCode.LeftControl))
             _controller.EngageJetPack();*/
 
 		if (Input.GetKey(KeyCode.UpArrow))
 			FireProjectile();
+
+        if (Input.GetKey(KeyCode.DownArrow))
+            Animator.SetTrigger("prone");
+    }
+
+    private void ClimbLadder()
+    {
+
     }
 
 	private void FireProjectile()
@@ -198,14 +232,15 @@ public class Player : MonoBehaviour, ITakeDamage
 		var text = other.tag;
 		//Debug.Log(text);
         
-/*
-		if (text == "Ladder")
-		{
-			//_characterController2D.IsOnLadder = true;
-			//IsClimbing = true;
-		}
 
-		if (text == "SubBossBulletDamage")
+		if (text == "ladder")
+		{        
+            
+        }
+			
+		
+
+/*		if (text == "SubBossBulletDamage")
 		{
 			Health = Health - SubBossBulletDamage;
 

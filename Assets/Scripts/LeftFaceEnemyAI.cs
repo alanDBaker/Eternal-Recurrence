@@ -8,7 +8,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
     public float Speed;
     public float MaxSpeed = 8;
     public float FireRate = 1;
-    public float distanceToPlayer = 20;
+    public float _distanceToPlayer = 20;
     public int Player_BulletDamage = 50;
     public bool IsDead { get; set; }
     public Projectile Projectile;
@@ -18,7 +18,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
 
     public int Health { get; set; }
     private CharacterController2D _controller;
-    private Vector3 _direction;
+    public Vector3 _direction;
     private float _canFireIn;
 
     // MonoBehavior.Start() is called on the frame when a script is enabled, called once
@@ -58,7 +58,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
             return;        
 
         // determine if the player is in sight of the enemy
-        RaycastHit2D rayCastHit = Physics2D.Raycast(transform.position, _direction, distanceToPlayer, LayerMask.GetMask("Player"));
+        RaycastHit2D rayCastHit = Physics2D.Raycast(transform.position, _direction, _distanceToPlayer, LayerMask.GetMask("Player"));
 
         // exit update() if not hitting a collider masked as player 
         if (!rayCastHit)
@@ -98,7 +98,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + _direction * distanceToPlayer);
+        Gizmos.DrawLine(transform.position, transform.position + _direction * _distanceToPlayer);
     }
 
 

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 2748ecc135e49c9409b6fb13d182863a
-timeCreated: 1476465973
+timeCreated: 1486403127
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: gun turret
+    21300002: gun turret_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,7 +55,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gun turret
+      name: gun turret_0
       rect:
         serializedVersion: 2
         x: 208
@@ -62,7 +63,7 @@ TextureImporter:
         width: 211
         height: 264
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

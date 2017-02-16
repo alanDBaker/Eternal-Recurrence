@@ -66,9 +66,11 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\CommentOnorOff.cs" />
     <Compile Include="Assets\Scripts\ControllerParameters2D.cs" />
     <Compile Include="Assets\Scripts\ControllerPhysicsVolume2D.cs" />
     <Compile Include="Assets\Scripts\ControllerState2D.cs" />
+    <Compile Include="Assets\Scripts\DoorPathway.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\FinishLevel.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Assets\Scripts\LFEnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\LFHealthBar.cs" />
     <Compile Include="Assets\Scripts\LFnonShootEnemyHB.cs" />
+    <Compile Include="Assets\Scripts\LadderZone.cs" />
     <Compile Include="Assets\Scripts\LeftFaceEnemyAI.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\SimpleProjectile.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
+    <Compile Include="Assets\Scripts\StartElevator.cs" />
     <Compile Include="Assets\Scripts\StartTheGunTurret.cs" />
     <Compile Include="Assets\Scripts\StoryScreenChange.cs" />
     <Compile Include="Assets\Scripts\SubBossHealthBar.cs" />

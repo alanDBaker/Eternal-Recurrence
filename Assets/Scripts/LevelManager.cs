@@ -109,7 +109,7 @@ public class LevelManager : MonoBehaviour
 		//GameManager.Instance.AddPoints(CurrentTimeBonus);
 
 		//FloatingText.Show("Level complete!", "CheckpointText", new CenteredTextPositioner(.2f));
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(0.5f);
 
 		//FloatingText.Show(string.Format("{0} points!", GameManager.Instance.Points), "CheckpointText", new CenteredTextPositioner(.1f));
 		//yield return new WaitForSeconds(5f);
@@ -130,7 +130,7 @@ public class LevelManager : MonoBehaviour
 	{
 		Player.Kill();
         Camera.IsFollowing = false;
-        yield  return new WaitForSeconds(2f);
+        yield  return new WaitForSeconds(0.5f);
 
 		Camera.IsFollowing = true;
 

@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
     public float FireRate = 1;
     public bool IsDead { get; set; }
     public int PlayerBulletDamage;
+    public float distanceToPlayer = 20;
     public Projectile Projectile;
     public AudioClip ShootSound;
     public AudioClip EnemyHit;
@@ -57,13 +58,16 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
             return;
 
         // determine if the player is in sight of the enemy
-        var raycast = Physics2D.Raycast(transform.position, _direction, 10, LayerMask.GetMask("Player"));
-        //Debug.Log(raycast);
+        var rayCastHit = Physics2D.Raycast(transform.position, _direction, 20, LayerMask.GetMask("Player"));
+
+        // determine if the player is in sight of the enemy
+        //RaycastHit2D rayCastHit = Physics2D.Raycast(transform.position, _direction, distanceToPlayer, LayerMask.GetMask("Player"));
 
         // exit the function if not hitting the player 
-        if (!raycast)
+        if (! rayCastHit)
             return;
-        //Debug.DrawRay(raycast, _direction, Color.cyan);
+
+        
 
         // clone the enemy bullet
         var projectile = (Projectile)Instantiate(Projectile, ProjectileFireLocation.position, transform.rotation);
