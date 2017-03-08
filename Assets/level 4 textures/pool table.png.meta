@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b76308cf81b39814fa512a2b3765ba7b
-timeCreated: 1483813114
+timeCreated: 1489006958
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,10 +57,10 @@ TextureImporter:
       name: pool table_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 116
+        x: 82
+        y: 123
         width: 471
-        height: 190
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

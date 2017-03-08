@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 148c58256a1fb314186da927c1933203
-timeCreated: 1483729510
+timeCreated: 1487712201
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,10 +57,10 @@ TextureImporter:
       name: elevator shaft_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 68
-        width: 470
-        height: 572
+        x: 79
+        y: 4
+        width: 915
+        height: 1020
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

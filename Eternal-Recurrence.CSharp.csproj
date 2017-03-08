@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -67,6 +69,8 @@
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\CommentOnorOff.cs" />
+    <Compile Include="Assets\Scripts\ControlPanelSwitch.cs" />
+    <Compile Include="Assets\Scripts\ControlSwitchPanel2.cs" />
     <Compile Include="Assets\Scripts\ControllerParameters2D.cs" />
     <Compile Include="Assets\Scripts\ControllerPhysicsVolume2D.cs" />
     <Compile Include="Assets\Scripts\ControllerState2D.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="Assets\Scripts\FollowPath.cs" />
     <Compile Include="Assets\Scripts\GameHud.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GateControlSwitch.cs" />
     <Compile Include="Assets\Scripts\GiveDamageToPlayer.cs" />
     <Compile Include="Assets\Scripts\GiveHealth.cs" />
     <Compile Include="Assets\Scripts\GunTurretShooterAI.cs" />
@@ -89,6 +94,7 @@
     <Compile Include="Assets\Scripts\IPlayerRespawnListener.cs" />
     <Compile Include="Assets\Scripts\ITakeDamage.cs" />
     <Compile Include="Assets\Scripts\InstaKill.cs" />
+    <Compile Include="Assets\Scripts\JumpPlatform.cs" />
     <Compile Include="Assets\Scripts\LFEnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\LFHealthBar.cs" />
     <Compile Include="Assets\Scripts\LFnonShootEnemyHB.cs" />
@@ -102,11 +108,15 @@
     <Compile Include="Assets\Scripts\PathDefinitions.cs" />
     <Compile Include="Assets\Scripts\PathedProjectile.cs" />
     <Compile Include="Assets\Scripts\PathedProjectileSpawner.cs" />
+    <Compile Include="Assets\Scripts\PictureTrigger.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerBounds.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\RFEnemyAI.cs" />
+    <Compile Include="Assets\Scripts\RFEnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\SimpleProjectile.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
+    <Compile Include="Assets\Scripts\StartBouncingBetty.cs" />
     <Compile Include="Assets\Scripts\StartElevator.cs" />
     <Compile Include="Assets\Scripts\StartTheGunTurret.cs" />
     <Compile Include="Assets\Scripts\StoryScreenChange.cs" />

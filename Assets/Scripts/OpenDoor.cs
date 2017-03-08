@@ -14,5 +14,11 @@ public class OpenDoor : MonoBehaviour
         if (text == "Player")
             Destroy(GameObject.FindGameObjectWithTag("GunShield"));
 
+        if (text == "Player")
+            Destroy(GameObject.FindGameObjectWithTag("ElevatorDoor"));
+
+        if (text == "Player")
+            Destroy(GameObject.FindGameObjectWithTag("Level 5 Gate"));
+
     }
 }

@@ -1,0 +1,255 @@
+fileFormatVersion: 2
+guid: 0653139f1783cfa46b32df5e2e2e4a0b
+timeCreated: 1487712437
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: elevator shaft 2_0
+    21300002: elevator shaft 2_1
+    21300004: elevator shaft 2_2
+    21300006: elevator shaft 2_3
+    21300008: elevator shaft 2_4
+    21300010: elevator shaft 2_5
+    21300012: elevator shaft 2_6
+    21300014: elevator shaft 2_7
+    21300016: elevator shaft 2_8
+    21300018: elevator shaft 2_9
+    21300020: elevator shaft 2_10
+    21300022: elevator shaft 2_11
+    21300024: elevator shaft 2_12
+    21300026: elevator shaft 2_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: elevator shaft 2_0
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 59
+        width: 324
+        height: 965
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_1
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 262
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 141
+        width: 10
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 82
+        width: 11
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_4
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 179
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 57
+        width: 16
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 6
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 37
+        width: 53
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_8
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 42
+        width: 74
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_9
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 41
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_10
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 41
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 6
+        width: 54
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_12
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 5
+        width: 69
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elevator shaft 2_13
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 4
+        width: 99
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
