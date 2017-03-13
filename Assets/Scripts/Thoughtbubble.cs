@@ -27,7 +27,7 @@ public class Thoughtbubble : MonoBehaviour
 
         wasOpened = true;
 
-        Debug.Log(wasOpened);
+       // Debug.Log(wasOpened);
     }
 
 	void OnTriggerExit2D(Collider2D other)

@@ -65,7 +65,7 @@ public class nonShooterEnemyAI : MonoBehaviour
 
         if (text == "Player_Bullet")
         {
-            Debug.Log(Health);
+            //Debug.Log(Health);
 
             Health -= Player_BulletDamage;
             //Destroy(other);
@@ -74,7 +74,7 @@ public class nonShooterEnemyAI : MonoBehaviour
 
             if (Health <= 0)
             {
-                Debug.Log("health is below 0");
+               // Debug.Log("health is below 0");
                 // kill the enemy object
                 Destroy(gameObject);
             }

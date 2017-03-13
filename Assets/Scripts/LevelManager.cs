@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
 	/*	var listeners = FindObjectsOfType<MonoBehaviour>().OfType<IPlayerRespawnListener>();
 
 		foreach (var listener in listeners)
+            theFalconFlameAnimator.enabled = false;
 		{
 			for (var i = _checkpoints.Count - 1; i >= 0; i--)
 			{

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+
 
 public class PictureTrigger : MonoBehaviour
 {
     private Animator thePictureAnimator;
     private GameObject theHouseElevator;
     private FollowPath theHouseElevatorPath;
+    
 
 
     // Use this for initialization
