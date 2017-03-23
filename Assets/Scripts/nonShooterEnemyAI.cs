@@ -3,7 +3,7 @@
 
 public class nonShooterEnemyAI : MonoBehaviour
 {
-	public int MaxHealth = 100;
+	public int MaxHealth;
 	public float Speed;
 	public float MaxSpeed = 8;
 	public float Damage = 25;
@@ -47,9 +47,6 @@ public class nonShooterEnemyAI : MonoBehaviour
             // reverse the direction for the vector
 			transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
-
-		//Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
-		AudioListener.volume = 1f;
 	}
 
 
@@ -69,7 +66,7 @@ public class nonShooterEnemyAI : MonoBehaviour
 
             Health -= Player_BulletDamage;
             //Destroy(other);
-            AudioListener.volume = 5f;
+            //AudioListener.volume = 16f;
             AudioSource.PlayClipAtPoint(EnemyHit, transform.position);
 
             if (Health <= 0)

@@ -2,21 +2,21 @@
 
 public class CommentOnorOff : MonoBehaviour
 {
-    private GameObject theThoughtBubbleObject;
+    private GameObject theObject;
+    public string nameOfObject;
+
     private Thoughtbubble theThoughtBubbleScript;
 
     // Use this for initialization
     void Start()
     {
-        //theThoughtBubbleObject = new Thoughtbubble();
+        theObject = GameObject.Find(nameOfObject);
 
-        theThoughtBubbleObject = GameObject.FindGameObjectWithTag("TresureSwitch");
-
-        theThoughtBubbleScript =  theThoughtBubbleObject.GetComponent<Thoughtbubble>();
+        theThoughtBubbleScript =  theObject.GetComponent<Thoughtbubble>();
 
         GetComponent<Renderer>().enabled = false;
 
-        Debug.Log(theThoughtBubbleScript.isOpen());
+        //Debug.Log(theThoughtBubbleScript.isOpen());
     }
 
     public void OnTriggerEnter2D(Collider2D other)

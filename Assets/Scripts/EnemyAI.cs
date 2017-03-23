@@ -83,7 +83,6 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
         //Debug.Log(Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
 
         //Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
-        AudioListener.volume = 1f;
         AudioSource.PlayClipAtPoint(ShootSound, transform.position);
     }
 
@@ -141,7 +140,7 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
 
             Health -= PlayerBulletDamage;
             //Destroy(other);
-            AudioListener.volume = 5f;
+           // AudioListener.volume = 5f;
             AudioSource.PlayClipAtPoint(EnemyHit, transform.position);
 
             if (Health <= 0)

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
@@ -10,6 +9,7 @@ public class LevelManager : MonoBehaviour
 	public static LevelManager Instance {get; private set; }
 
 	public Player Player {get; private set; }
+    public NonShooterPlayer NonShooterPlayer { get; private set; }
 	public CameraController Camera {get; private set; }
 	//public TimeSpan RunningTime {get { return DateTime.UtcNow - _started; }}
 
@@ -51,8 +51,6 @@ public class LevelManager : MonoBehaviour
 
 	/*	var listeners = FindObjectsOfType<MonoBehaviour>().OfType<IPlayerRespawnListener>();
 
-		foreach (var listener in listeners)
-            theFalconFlameAnimator.enabled = false;
 		{
 			for (var i = _checkpoints.Count - 1; i >= 0; i--)
 			{

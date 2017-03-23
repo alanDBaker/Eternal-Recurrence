@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class FinishLevel : MonoBehaviour
 {
@@ -30,7 +28,6 @@ public class FinishLevel : MonoBehaviour
         {
             LevelManager.Instance.GotoNextLevel(LevelName);
         }
-        
     }
 
 }

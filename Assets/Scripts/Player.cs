@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ITakeDamage 
 {
-	// these varibles will show up on the inspector component
+	// public varibles will show up on the unity inspector
     public float MaxSpeed = 8;
     public float SpeedAccelerationOnGround = 10f;
     public float SpeedAccelerationInAir = 5f;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour, ITakeDamage
 	public AudioClip DeathScream;
 	public AudioClip JumpSound;
 	public Animator Animator = null;
-    public bool OnLadder;
+    public bool OnLadder {get; set;}
     public float climbSpeed;
     private float climbVelocity;
     private float gravityStore;
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour, ITakeDamage
     private float _canFireIn;
     //private float _normalizedVerticalSpeed;
     private float movementFactor;
-    private Rigidbody2D myRigidody2D;
+    //private object scene;
 
 
     // initialize variables before game starts; called only once during the lifetime of the script
@@ -45,11 +46,10 @@ public class Player : MonoBehaviour, ITakeDamage
         // checks the orientation of the character; local transform
         _isFacingRight = transform.localScale.x > 0;
 
-        //Debug.Log(transform.loc);
         // assign full health
 		Health = MaxHealth;
 
-        //gravityStore = myRigidody2D.gravityScale;
+        //scene = Scene.Equals()
     }
 
     // Called every frame, if monoBehavior is enabled
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour, ITakeDamage
 		GetComponent<Collider2D>().enabled = false;
 		IsDead = true;
 		Health = 0;
-		_controller.SetForce(new Vector2(0, 10));
+		_controller.SetForce(new Vector2(0, 3));
 	}
 
 	public void RespawnAt(Transform spawnPoint)
@@ -159,40 +159,31 @@ public class Player : MonoBehaviour, ITakeDamage
 
         if (_controller.CanJump && Input.GetKeyDown(KeyCode.Space))
         {
-			//Debug.Log ("I can jump");
-            _controller.Jump();
+			_controller.Jump();
             AudioSource.PlayClipAtPoint(JumpSound, transform.position);
         }
 
-      /* if (OnLadder)
-        {
-            myRigidody2D.gravityScale = 0f;
+        //Debug.Log(OnLadder);
 
-            climbVelocity = climbSpeed * Input.GetAxisRaw("Vertical");
+        //if (OnLadder)
+        //{
+            if (Input.GetKey(KeyCode.W))
+            {
+                _controller.ClimbUp();
+            }
+            if (Input.GetKey(KeyCode.Z))
+            {
+                _controller.ClimbDown();
+            }            
+       // }    
 
-            myRigidody2D.velocity = new Vector2(myRigidody2D.velocity.x, climbSpeed);
-        }
-
-       if (! OnLadder)
-        {
-            myRigidody2D.gravityScale = gravityStore;
-        }*/
-    
-
-       /* if (_controller.CanJump && Input.GetKeyDown(KeyCode.LeftControl))
-            _controller.EngageJetPack();*/
-
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) && SceneManager.GetActiveScene().name != "Level 2 Boss")
 			FireProjectile();
 
         if (Input.GetKey(KeyCode.DownArrow))
             Animator.SetTrigger("prone");
     }
 
-    private void ClimbLadder()
-    {
-
-    }
 
 	private void FireProjectile()
 	{
@@ -212,6 +203,7 @@ public class Player : MonoBehaviour, ITakeDamage
 		projectile.Initialize(gameObject, direction, _controller.Velocity);
 
 		//projectile.transform.localScale = new Vector3(_isFacingRight ? 1 : -1, 1, 1);
+
 		_canFireIn = FireRate;
 
 		AudioSource.PlayClipAtPoint(PlayerShootSound, transform.position);
@@ -227,76 +219,35 @@ public class Player : MonoBehaviour, ITakeDamage
         _isFacingRight = transform.localScale.x > 0;
     }
 
+
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		var text = other.tag;
-		//Debug.Log(text);
-        
 
-		if (text == "ladder")
-		{        
-            
-        }
-			
-		
-
-/*		if (text == "SubBossBulletDamage")
+		/*if (text == "ladder")
 		{
-			Health = Health - SubBossBulletDamage;
+            OnLadder = true;
+        }*/
 
-			Debug.Log(Health);
-
-			AudioSource.PlayClipAtPoint(PlayerHitSound, transform.position);
-
-			if (Health <= 0)
-			{
-				Debug.Log("player is below 0");
-				Kill();
-				//WaitForSeconds(2);
-				AudioSource.PlayClipAtPoint(DeathScream, transform.position);
-				Destroy(gameObject);
-				//gameObject.SetActive(false);
-			}
-
-		}
-		
-		if (text == "Bullet")
-		{
-			Health = Health - BulletDamage;
-
-			Debug.Log(Health);
-
-			AudioSource.PlayClipAtPoint(PlayerHitSound, transform.position);
-
-			if (Health <= 0)
-			{
-				Debug.Log("player is below 0");
-				Kill();
-				//WaitForSeconds(2);
-				AudioSource.PlayClipAtPoint(DeathScream, transform.position);
-				Destroy(gameObject);
-				//gameObject.SetActive(false);
-			}
-		}
-		/*if (text == "Spikes") 
-		{
-			Destroy(gameObject);
-
-			gameObject.SetActive (false);
-			Kill();
-		}
-
-		if (text == "Enemy")
-		{
-			Destroy(gameObject);
-			Kill();
-		}*/
+        //Debug.Log(OnLadder);
 
 		if (text == "LairDoor")
 			Destroy(GameObject.FindGameObjectWithTag("LairDoor"));
-
      
 	}
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+       /* string text = other.tag;
+
+        if (text == "ladder")
+        {
+            OnLadder = false;
+        }*/
+
+        //Debug.Log(OnLadder);
+    }
+
 }
 
 

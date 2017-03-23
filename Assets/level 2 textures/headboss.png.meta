@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: 7a74d4edeb30eac40adc6ce162a4b4c2
-timeCreated: 1476388669
+timeCreated: 1489436492
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Single sprite head boss
+    21300000: Dr Otto
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,7 +54,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Single sprite head boss
+      name: Dr Otto
       rect:
         serializedVersion: 2
         x: 279

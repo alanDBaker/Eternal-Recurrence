@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\CheckBatteries.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\CheckTinyTim.cs" />
     <Compile Include="Assets\Scripts\CommentOnorOff.cs" />
     <Compile Include="Assets\Scripts\ControlPanelSwitch.cs" />
     <Compile Include="Assets\Scripts\ControlSwitchPanel2.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\GunTurretShooterAI.cs" />
     <Compile Include="Assets\Scripts\GurrerrillaFighterHealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\HealthBarNonShootEnemy.cs" />
     <Compile Include="Assets\Scripts\HealthBarScorpion.cs" />
     <Compile Include="Assets\Scripts\IFloatingTextPositioner.cs" />
     <Compile Include="Assets\Scripts\IPlayerRespawnListener.cs" />
@@ -102,7 +104,9 @@
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager2.cs" />
+    <Compile Include="Assets\Scripts\MusicManager3.cs" />
     <Compile Include="Assets\Scripts\NonMovementEnemyAI.cs" />
+    <Compile Include="Assets\Scripts\NonShooterPlayer.cs" />
     <Compile Include="Assets\Scripts\OpenDoor.cs" />
     <Compile Include="Assets\Scripts\PathDefinitions.cs" />
     <Compile Include="Assets\Scripts\PathedProjectile.cs" />
@@ -113,6 +117,8 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\RFEnemyAI.cs" />
     <Compile Include="Assets\Scripts\RFEnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\RobotAI.cs" />
+    <Compile Include="Assets\Scripts\RobotHealthBar.cs" />
     <Compile Include="Assets\Scripts\SimpleProjectile.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
     <Compile Include="Assets\Scripts\StartBouncingBetty.cs" />
@@ -121,10 +127,14 @@
     <Compile Include="Assets\Scripts\StoryScreenChange.cs" />
     <Compile Include="Assets\Scripts\SubBossHealthBar.cs" />
     <Compile Include="Assets\Scripts\Thoughtbubble.cs" />
+    <Compile Include="Assets\Scripts\TimerStoryScreenChange.cs" />
     <Compile Include="Assets\Scripts\nonShooterEnemyAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sounds\8-Bit_Action_Free\Readme.txt" />
+    <None Include="Assets\Sounds\8-bit 8Pack\readme.txt" />
+    <None Include="Assets\Sounds\FUTURE_BEEPS_LITE\Read_Me.txt" />
+    <None Include="Assets\Sounds\explosionsoundslite\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

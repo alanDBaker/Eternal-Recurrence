@@ -12,7 +12,6 @@ public class CheckBatteries : MonoBehaviour
     {
         batt1 = GameObject.Find("Battery");
         batt2 = GameObject.Find("Battery 2");
-
 	}
 	
 	// Update is called once per frame
@@ -20,7 +19,6 @@ public class CheckBatteries : MonoBehaviour
     {
 	    if (batt1 == null && batt2 == null)
         {
-
             LevelManager.Instance.GotoNextLevel(LevelName);
         }
 	}

@@ -14,12 +14,15 @@ public class MusicManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //Debug.Log(scene);
-        
+        if (scene.name == "Story Scene 8")
+        {
+            gameObject.SetActive(false);
+        }
         if (scene.name == "Level 1")
         {
             gameObject.SetActive(false);
         }
-        else if (scene.name == "Level 2")
+        if (scene.name == "Level 2")
         {
             gameObject.SetActive(false);
         }
@@ -35,6 +38,21 @@ public class MusicManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
+        if (scene.name == "Level 3 Boss")
+        {
+            gameObject.SetActive(false);
+        }
+        if (scene.name == "Level 4")
+        {
+            gameObject.SetActive(false);
+        }
+        if (scene.name == "Level 6")
+        {
+            gameObject.SetActive(false);
+        }
+        if (scene.name == "Story Scene 60")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

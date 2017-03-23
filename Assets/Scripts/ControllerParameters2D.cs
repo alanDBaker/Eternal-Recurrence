@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 [Serializable]
 public class ControllerParameters2D 
@@ -14,10 +12,7 @@ public class ControllerParameters2D
 		CantJump
 	}
 
-    public enum LadderBehavior
-    {
-
-    }
+    public bool OnLadder;
 
     public Vector2 MaxVelocity = new Vector2(float.MaxValue, float.MaxValue);
 

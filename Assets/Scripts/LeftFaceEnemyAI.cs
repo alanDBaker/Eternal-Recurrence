@@ -18,7 +18,8 @@ public class LeftFaceEnemyAI : MonoBehaviour
 
     public int Health { get; set; }
     private CharacterController2D _controller;
-    public Vector3 _direction;
+    public Vector3 DirectionToPlayer;
+    private Vector3 _direction;
     private float _canFireIn;
 
     // MonoBehavior.Start() is called on the frame when a script is enabled, called once
@@ -78,7 +79,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
         //Debug.Log(Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
 
         //Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
-        AudioListener.volume = 1f;
+        //AudioListener.volume = 1f;
         AudioSource.PlayClipAtPoint(ShootSound, transform.position);
     }
 
@@ -98,7 +99,7 @@ public class LeftFaceEnemyAI : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + _direction * _distanceToPlayer);
+        Gizmos.DrawLine(transform.position, transform.position + DirectionToPlayer * _distanceToPlayer);
     }
 
 
@@ -118,12 +119,12 @@ public class LeftFaceEnemyAI : MonoBehaviour
 
             Health -= Player_BulletDamage;
             //Destroy(other);
-            AudioListener.volume = 5f;
+            //AudioListener.volume = 5f;
             AudioSource.PlayClipAtPoint(EnemyHit, transform.position);
 
             if (Health <= 0)
             {
-                Debug.Log("health is below 0");
+                //Debug.Log("health is below 0");
 
                 // kill the enemy object
                 Destroy(gameObject);

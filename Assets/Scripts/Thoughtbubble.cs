@@ -1,6 +1,5 @@
-﻿using System;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
-using System.Collections;
 
 public class Thoughtbubble : MonoBehaviour 
 {
@@ -25,7 +24,7 @@ public class Thoughtbubble : MonoBehaviour
 		if (other.name == "Player")
 			GetComponent<Renderer>().enabled = true;
 
-        wasOpened = true;
+        wasOpened = true;       
 
        // Debug.Log(wasOpened);
     }
@@ -36,7 +35,12 @@ public class Thoughtbubble : MonoBehaviour
 
 		if (other.name == "Player")
 			GetComponent<Renderer>().enabled = false;
-	}
+
+        if (SceneManager.GetActiveScene().name == "Level 3 Boss")
+        {
+            Destroy(gameObject);
+        }
+    }
 
     
 }

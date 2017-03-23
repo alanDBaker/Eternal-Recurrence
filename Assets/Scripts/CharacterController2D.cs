@@ -45,7 +45,7 @@ public class CharacterController2D : MonoBehaviour
     public bool HandleCollisons{get; set;}
     public ControllerParameters2D Parameters{get {return _overrideParameters ?? DefaultParameters;}}
 	public GameObject StandingOn{get; private set;}
-	public Vector3 PlatformVelocity {get; private set; }
+	public Vector3 PlatformVelocity {get; private set;}
 
     private ControllerParameters2D _overrideParameters;
     private Vector2 _velocity;
@@ -97,6 +97,16 @@ public class CharacterController2D : MonoBehaviour
     {
 		AddForce(new Vector2(0, Parameters.JumpMagnitude));
 		_jumpIn = Parameters.JumpFrequency;
+    }
+
+    public void ClimbUp()
+    {
+        _transform.Translate(Vector3.up * 1/4, Space.World);
+    }
+
+    public void ClimbDown()
+    {
+        _transform.Translate(Vector3.down * 1/4);
     }
 
     public void LateUpdate()
