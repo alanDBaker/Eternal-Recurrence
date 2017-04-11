@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4ca7c86181a91fd40932ce27a3579b41
-timeCreated: 1490212549
+timeCreated: 1491610554
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,9 +57,9 @@ TextureImporter:
       name: InitialThoughtsJim_0
       rect:
         serializedVersion: 2
-        x: 40
+        x: 20
         y: 274
-        width: 517
+        width: 537
         height: 322
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

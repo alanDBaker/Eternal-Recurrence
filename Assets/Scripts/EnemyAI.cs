@@ -65,9 +65,7 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
 
         // exit the function if not hitting the player 
         if (! rayCastHit)
-            return;
-
-        
+            return;        
 
         // clone the enemy bullet
         var projectile = (Projectile)Instantiate(Projectile, ProjectileFireLocation.position, transform.rotation);
@@ -88,7 +86,7 @@ public class EnemyAI : MonoBehaviour, IPlayerRespawnListener
 
    /* public void TakeDamage(int damage, GameObject instigator)
     {
-        /*if (PointsToGivePlayer != 0)
+        if (PointsToGivePlayer != 0)
         {
 
         }

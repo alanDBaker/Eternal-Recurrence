@@ -13,17 +13,8 @@ public class CharacterController2D : MonoBehaviour
 
     public LayerMask PlatformMask;
     public ControllerParameters2D DefaultParameters;
-    public ControllerState2D State { get; set; }
-    public Vector2 Velocity { get {return _velocity;}}
-
-  /*  public bool onLadder
-    {
-        get {
-
-            if (
-                return true;
-        }
-    }i*/
+    public ControllerState2D State {get; set;}
+    public Vector2 Velocity {get {return _velocity;}}
 
     public bool CanJump 
 	{
@@ -42,10 +33,15 @@ public class CharacterController2D : MonoBehaviour
 			return false;
 		}
 	}
+
+   
+
     public bool HandleCollisons{get; set;}
     public ControllerParameters2D Parameters{get {return _overrideParameters ?? DefaultParameters;}}
-	public GameObject StandingOn{get; private set;}
+	public GameObject StandingOn{get; private set;}   
+
 	public Vector3 PlatformVelocity {get; private set;}
+    public GameObject DoorWay {get; set;}
 
     private ControllerParameters2D _overrideParameters;
     private Vector2 _velocity;
@@ -99,16 +95,6 @@ public class CharacterController2D : MonoBehaviour
 		_jumpIn = Parameters.JumpFrequency;
     }
 
-    public void ClimbUp()
-    {
-        _transform.Translate(Vector3.up * 1/4, Space.World);
-    }
-
-    public void ClimbDown()
-    {
-        _transform.Translate(Vector3.down * 1/4);
-    }
-
     public void LateUpdate()
     {
 		_jumpIn -= Time.deltaTime;
@@ -120,6 +106,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void Move(Vector2 deltaMovement)
     {
+       // Debug.Log(StandingOn);
         var wasGrounded = State.IsCollidingBelow;
         State.Reset();
 

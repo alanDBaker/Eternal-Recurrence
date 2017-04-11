@@ -75,12 +75,6 @@ public class RFEnemyAI : MonoBehaviour
         // set the fireRate
         _canFireIn = FireRate;
 
-        //Debug.Log(24332);
-
-        //Debug.Log(Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
-
-        //Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
-        AudioListener.volume = 1f;
         AudioSource.PlayClipAtPoint(ShootSound, transform.position);
     }
 
@@ -120,7 +114,6 @@ public class RFEnemyAI : MonoBehaviour
 
             Health -= Player_BulletDamage;
             //Destroy(other);
-            AudioListener.volume = 5f;
             AudioSource.PlayClipAtPoint(EnemyHit, transform.position);
 
             if (Health <= 0)

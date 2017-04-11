@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 10ce495a6947b8f4787ae631aed0d096
-timeCreated: 1472572722
+timeCreated: 1491926126
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Player_Bullet
+    21300002: Player_Bullet_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,13 +55,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Bullet
+      name: Player_Bullet_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 65
-        width: 29
-        height: 7
+        x: 22
+        y: 58
+        width: 48
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

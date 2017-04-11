@@ -13,7 +13,7 @@ public abstract class Projectile : MonoBehaviour
 	// constructor monoBehaviour can not have 
 	public void Initialize(GameObject owner, Vector2 direction, Vector2 initialVelocity)
 	{
-        //Debug.Log(direction);        
+        transform.right = direction;       
 
 		Owner = owner;
 		Direction = direction;

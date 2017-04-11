@@ -4,14 +4,26 @@ public class DoorPathway : MonoBehaviour
 {
     public Transform exit;
     static Transform last;
+    private bool _inDoorWay;
 
+    public bool InDoorWay
+    {
+        get { return _inDoorWay; }
+        set { _inDoorWay = value; }
+    }
+
+ 
+    public void SetDoorWayToTrue()
+    {
+        _inDoorWay = true;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (exit == last)
                 return;
-
-        TeleportToExit(other);
+      
+       TeleportToExit(other);
     }
 
     void OnTriggerExit2D()

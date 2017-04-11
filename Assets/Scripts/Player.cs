@@ -15,13 +15,10 @@ public class Player : MonoBehaviour, ITakeDamage
 	public AudioClip PlayerHitSound;
 	public AudioClip PlayerShootSound;
 	public AudioClip PlayerHealthSound;
+    public AudioClip PlayerExtraLifeSound;
 	public AudioClip DeathScream;
 	public AudioClip JumpSound;
-	public Animator Animator = null;
-    public bool OnLadder {get; set;}
-    public float climbSpeed;
-    private float climbVelocity;
-    private float gravityStore;
+	public Animator Animator = null;    
 
 	// boilerPlate property for the C# 3.0 compiler. 
 	public int Health {get; private set;}
@@ -32,15 +29,14 @@ public class Player : MonoBehaviour, ITakeDamage
     private CharacterController2D _controller;
     private float _normalizedHorizontalSpeed;
     private float _canFireIn;
-    //private float _normalizedVerticalSpeed;
     private float movementFactor;
-    //private object scene;
+    
 
 
-    // initialize variables before game starts; called only once during the lifetime of the script
+    // initialize variables before game Start(); called only once during the lifetime of the script
     public void Awake()
     {
-    	// the type of the component to retrieve
+        // cache local variables
         _controller = GetComponent<CharacterController2D>();
 
         // checks the orientation of the character; local transform
@@ -48,36 +44,27 @@ public class Player : MonoBehaviour, ITakeDamage
 
         // assign full health
 		Health = MaxHealth;
-
-        //scene = Scene.Equals()
     }
 
     // Called every frame, if monoBehavior is enabled
     public void Update()
     {
-    	// subtract from can fire; so there will be a fire rate
+    	// subtract from can fire by time; so there will be a fire rate
 		_canFireIn -= Time.deltaTime;
 
 		// make sure the player is not dead
 		if (! IsDead)
 			HandleInput();
 
-       // Debug.Log(_normalizedVerticalSpeed);
-
-		//	if player is on the ground the speed factor is different compared to in the air	
+		// if player is on the ground the speed factor is different compared to in the air	
          movementFactor = _controller.State.IsGrounded ? SpeedAccelerationOnGround : SpeedAccelerationInAir;
 
-        // make the player not be able to move if dead
-		if (IsDead)
+        // if not dead, set the linearly interpolates from a to b by time
+        if (IsDead)
 			_controller.SetHorizontalForce(0);
-
-		// set the linearly interpolates from a to b by time
+        else 
 		_controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
 
-        //_controller.SetVerticalForce(Mathf.Lerp(_controller.Velocity.y, _normalizedVerticalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
-
-
-        //Debug.Log(_controller.CanJump);
         // params 1: name of the parameter; param2: the new value for the parameter
         Animator.SetBool("IsGrounded", _controller.State.IsGrounded);
 
@@ -85,9 +72,75 @@ public class Player : MonoBehaviour, ITakeDamage
 		Animator.SetFloat("Speed", Mathf.Abs(_controller.Velocity.x) / MaxSpeed);
     }
 
-	public void FinishLevel()
+    private void HandleInput()
+    {
+        var value = Input.GetAxis("Horizontal");
+        // Debug.Log(value);    
+
+        if (value > 0)
+        {
+            _normalizedHorizontalSpeed = 1;
+
+            if (!_isFacingRight)
+                Flip();
+        }
+        else if (value < 0)
+        {
+            _normalizedHorizontalSpeed = -1;
+
+            if (_isFacingRight)
+                Flip();
+        }
+        else
+        {
+            _normalizedHorizontalSpeed = 0;
+        }
+
+        Debug.Log(_isFacingRight);
+
+        if (_controller.CanJump && Input.GetKeyDown("joystick button 0"))
+        {
+            _controller.Jump();
+            AudioSource.PlayClipAtPoint(JumpSound, transform.position);
+        }
+
+        if (Input.GetKeyDown("joystick button 2") && SceneManager.GetActiveScene().name != "Level 2 Boss")
+            FireProjectile();
+
+        if (Input.GetKeyDown("joystick button 1"))
+            Animator.SetTrigger("prone");
+    }
+
+    private void FireProjectile()
+    {
+        // make sure the fire rate is higher than 0
+        if (_canFireIn > 0)
+            return;
+
+        /*if (FireProjectileEffect != null)
+        {
+            var effect = (GameObject)Instantiate(FireProjectileEffect, ProjectileFireLocation.position, ProjectileFireLocation.rotation);
+            effect.transform.parent = transform;
+        }*/
+
+        var direction = _isFacingRight ? Vector2.right : -Vector2.right;
+
+        //Debug.Log(_isFacingRight);
+
+        var projectile = (Projectile)Instantiate(Projectile, ProjectileFireLocation.position, ProjectileFireLocation.rotation);
+
+        projectile.Initialize(gameObject, direction, _controller.Velocity);
+
+        _canFireIn = FireRate;
+
+        AudioSource.PlayClipAtPoint(PlayerShootSound, transform.position);
+
+        Animator.SetTrigger("Fire");
+    }
+
+    public void FinishLevel()
 	{
-        // play sounds
+        // play sounds?
 		enabled = false;
 		_controller.enabled = false;
 		GetComponent<Collider2D>().enabled = false;
@@ -100,7 +153,7 @@ public class Player : MonoBehaviour, ITakeDamage
 		GetComponent<Collider2D>().enabled = false;
 		IsDead = true;
 		Health = 0;
-		_controller.SetForce(new Vector2(0, 3));
+		_controller.SetForce(new Vector2(0, 4));
 	}
 
 	public void RespawnAt(Transform spawnPoint)
@@ -136,80 +189,12 @@ public class Player : MonoBehaviour, ITakeDamage
 		Health = Mathf.Min(Health + health, MaxHealth);
 	}
 
-    private void HandleInput()
+    public void GiveExtraLife(int lives, GameObject instigator)
     {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            _normalizedHorizontalSpeed = 1;
+        AudioSource.PlayClipAtPoint(PlayerExtraLifeSound, transform.position);
 
-            if (!_isFacingRight)
-                Flip();
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            _normalizedHorizontalSpeed = -1;
-
-            if (_isFacingRight)
-                Flip();
-        }
-        else
-        {
-            _normalizedHorizontalSpeed = 0;
-        }
-
-        if (_controller.CanJump && Input.GetKeyDown(KeyCode.Space))
-        {
-			_controller.Jump();
-            AudioSource.PlayClipAtPoint(JumpSound, transform.position);
-        }
-
-        //Debug.Log(OnLadder);
-
-        //if (OnLadder)
-        //{
-            if (Input.GetKey(KeyCode.W))
-            {
-                _controller.ClimbUp();
-            }
-            if (Input.GetKey(KeyCode.Z))
-            {
-                _controller.ClimbDown();
-            }            
-       // }    
-
-		if (Input.GetKey(KeyCode.UpArrow) && SceneManager.GetActiveScene().name != "Level 2 Boss")
-			FireProjectile();
-
-        if (Input.GetKey(KeyCode.DownArrow))
-            Animator.SetTrigger("prone");
-    }
-
-
-	private void FireProjectile()
-	{
-		if (_canFireIn > 0)
-			return;
-
-        /*if (FireProjectileEffect != null)
-        {
-            var effect = (GameObject)Instantiate(FireProjectileEffect, ProjectileFireLocation.position, ProjectileFireLocation.rotation);
-            effect.transform.parent = transform;
-        }*/
-
-		var direction = _isFacingRight ? Vector2.right : -Vector2.right;
-
-		var projectile = (Projectile) Instantiate(Projectile, ProjectileFireLocation.position, ProjectileFireLocation.rotation);
-
-		projectile.Initialize(gameObject, direction, _controller.Velocity);
-
-		//projectile.transform.localScale = new Vector3(_isFacingRight ? 1 : -1, 1, 1);
-
-		_canFireIn = FireRate;
-
-		AudioSource.PlayClipAtPoint(PlayerShootSound, transform.position);
-
-		Animator.SetTrigger("Fire");
-	}
+        GameManager.Instance.AddLife();
+    }   
 
     // reverse the localScale.x to either -1 or 1
     private void Flip()
@@ -222,14 +207,7 @@ public class Player : MonoBehaviour, ITakeDamage
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		var text = other.tag;
-
-		/*if (text == "ladder")
-		{
-            OnLadder = true;
-        }*/
-
-        //Debug.Log(OnLadder);
+		var text = other.tag;       
 
 		if (text == "LairDoor")
 			Destroy(GameObject.FindGameObjectWithTag("LairDoor"));
@@ -238,305 +216,8 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public void OnTriggerExit2D(Collider2D other)
     {
-       /* string text = other.tag;
+      // string text = other.tag;
 
-        if (text == "ladder")
-        {
-            OnLadder = false;
-        }*/
-
-        //Debug.Log(OnLadder);
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*using UnityEngine;
-using System.Collections;
-
-public class Player : MonoBehaviour, ITakeDamage 
-{
-	// Fields
-	private bool _isFacingRight;
-	private CharacterController2D _characterController2D;
-	private float _normalizedHorizontalSpeed;
-	private float _canFire;
-	private bool ExtraJump = true;
-
-	// interface on the unity inspector
-	public int Health {get; private set;}
-	public bool IsDead {get; private set;}
-	public bool IsClimbing {get; set;}
-	public int MaxHealth = 100;
-	public float MaxSpeed = 20f;
-	public int BulletDamage = 10;
-	public int SubBossBulletDamage = 30;
-	public int damage;
-	public Animator Animator;
-	public Projectile Projectile;
-	public float FireRate;
-	public Transform ProjectileFireLocation;
-	public AudioClip PlayerShootSound;
-	public AudioClip PlayerHit;
-	public AudioClip DeathScream;
-	public AudioClip JumpSound;
-
-
-	// Awake is used to initialize any variable or game state before the game start. Called once
-	public void Awake()
-	{
-		// Returns the component of Type type; if the game object has one attached, null if not
-		_characterController2D = GetComponent<CharacterController2D>();
-
-		// Set bool to True if x-axis is greater than zero, meaning character is facing right
-		_isFacingRight = transform.localScale.x > 0;
-
-		IsDead = false;
-		IsClimbing = false;
-		Health = MaxHealth;
-	}
-
-	// Update is called every frame
-	public void Update()
-	{
-		ExtraJump = true;
-		
-		// Set the _velocity.x 
-		_characterController2D.SetHorizontalForce(_normalizedHorizontalSpeed * MaxSpeed);
-
-		// decrease the time since the last fired shot 
-		_canFire = _canFire - Time.deltaTime;
-
-		// Call the HandleInput function for each frame
-		HandleInput();
-
-		// Set the Animator Speed parameter between zero and one every frame
-		Animator.SetFloat("Speed", Mathf.Abs(_characterController2D.Velocity.x) / MaxSpeed);
-
-		// Set the Animator IsGrounded parameter 
-		Animator.SetBool("IsGrounded", _characterController2D.State.IsGrounded);
-
-		Animator.SetBool("IsDead", IsDead);
-
-		Animator.SetBool("IsClimbing", IsClimbing);
-	}
-		
-	// player interface function
-	private void HandleInput()
-	{
-		// Returns true while the user holds down the key identified by the key
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			_normalizedHorizontalSpeed = 1;
-
-			if (! _isFacingRight)
-				Flip();
-		}
-		else if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			_normalizedHorizontalSpeed = -1;
-
-			if ( _isFacingRight)
-				Flip();
-		}
-		else
-		{
-			_normalizedHorizontalSpeed = 0;
-		}
-		// Jumping controls
-		if (_characterController2D.CanJump && Input.GetKeyDown(KeyCode.Space))
-		{
-			_characterController2D.Jump();	
-
-			if (Input.GetKeyDown(KeyCode.Space) && ExtraJump == true)
-			{
-				_characterController2D.Jump();
-				Debug.Log(ExtraJump);	
-			}
-				  
-
-			AudioSource.PlayClipAtPoint (JumpSound, transform.position);
-
-			//ExtraJump = false;
-		}
-
-		/*if (_characterController2D.IsOnLadder && Input.GetKeyDown(KeyCode.C))
-		{
-			_characterController2D.ClimbLatter();
-		}
-
-		if (Input.GetKey(KeyCode.UpArrow))
-			FireProjectile(); 
-
-		if (Input.GetKeyDown(KeyCode.F))
-			Animator.SetTrigger("FireProne");
-	}
-
-
-
-	private void KillPlayer()
-	{
-		IsDead = true;
-		Health = 0;
-		//AudioListener.volume = 4;
-		AudioSource.PlayClipAtPoint(DeathScream, transform.position);
-	}
-
-	private void FireProjectile()
-	{
-		// determine if the weapon is cooled down
-		if (_canFire > 0)
-			return;
-
-		// determine the character direction; -1 or 1 in the x-axis
-		var direction = _isFacingRight ? Vector2.right : -Vector2.right;
-
-		// clones the object original and returns the clone; using a typecast for Projectile class
-		var projectile = (Projectile) Instantiate(Projectile, ProjectileFireLocation.position, ProjectileFireLocation.rotation);
-
-		// gameObject = that this componet is attached to
-		projectile.Initialize(gameObject, direction, _characterController2D.Velocity);
-
-		// set the fireRate
-		_canFire = FireRate;
-
-		AudioSource.PlayClipAtPoint (PlayerShootSound, transform.position);
-
-		// set the fire trigger
-		Animator.SetTrigger("Fire");
-	}
-
-	// turn the character in opposite
-	private void Flip()
-	{
-		// Negate the x axis with a new object on the heap
-		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-		// Double check if facing right; set to true
-		_isFacingRight = transform.localScale.x > 0;
-	}
-
-	public void GiveHealth(int health, GameObject instigator)
-	{
-		//AudioSource.PlayClipAtPoint(PlayerHealthSound, transform.position);
-		//FloatingText.Show(string.Format("+{0}", health), "PlayerGotHealthText", new FromWorldPointTextPositioner(Camera.main, transform.position, 2f, 60f));
-		//Health += health;
-		Health = Mathf.Min (Health + health, MaxHealth);
-	}
-
-	public void TakeDamage(int damage, GameObject instigator)
-	{
-		Health -= damage;
-	}
-
-	public void OnTriggerEnter2D(Collider2D other)
-	{
-		var text = other.tag;
-		//Debug.Log(text);
-
-		if (text == "Ladder")
-		{
-			//_characterController2D.IsOnLadder = true;
-			IsClimbing = true;
-		}
-
-		if (text == "SubBossBulletDamage")
-		{
-			Health = Health - SubBossBulletDamage;
-
-			Debug.Log(Health);
-
-			AudioSource.PlayClipAtPoint(PlayerHit, transform.position);
-
-			if (Health <= 0)
-			{
-				Debug.Log("player is below 0");
-				KillPlayer();
-				//WaitForSeconds(2);
-
-				Destroy(gameObject);
-				//gameObject.SetActive(false);
-			}
-
-		}
-		
-		if (text == "Bullet")
-		{
-			Health = Health - BulletDamage;
-
-			Debug.Log(Health);
-
-			AudioSource.PlayClipAtPoint(PlayerHit, transform.position);
-
-			if (_isFacingRight)
-			{
-				_characterController2D.SetHorizontalForce(888);
-			}
-			if (Health <= 0)
-			{
-				Debug.Log("player is below 0");
-				KillPlayer();
-				//WaitForSeconds(2);
-
-				Destroy(gameObject);
-				//gameObject.SetActive(false);
-			}
-		}
-		if (text == "Spikes") 
-		{
-			Destroy(gameObject);
-			gameObject.SetActive (false);
-			KillPlayer();
-		}
-
-		if (text == "Enemy")
-		{
-			Destroy(gameObject);
-			KillPlayer();
-		}
-
-		if (text == "LairDoor")
-			Destroy(GameObject.FindGameObjectWithTag("LairDoor"));
-
-		if (text == "Thought_Bubble")
-			other.enabled = true;
-
-	}
-
-	public void OnTriggerExit2D(Collider2D other)
-	{
-		var text = other.tag;
-
-		if (text == "Ladder")
-		{
-			//_characterController2D.IsOnLadder = false;
-			IsClimbing = false;
-		}
-			
-		/*if (text == "Thought_Bubble")
-			other.enabled = false;
-	}
-}*/
-
-

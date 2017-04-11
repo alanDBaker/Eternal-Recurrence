@@ -30,6 +30,7 @@ public class CheckPoint : MonoBehaviour
 
 	public void SpawnPlayer(Player player)
 	{
+        // respawn at this transform location
 		player.RespawnAt(transform);
 
 		foreach (var lisenter in _listeners)

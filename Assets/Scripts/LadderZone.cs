@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
 public class LadderZone : MonoBehaviour
 {
@@ -13,18 +11,23 @@ public class LadderZone : MonoBehaviour
     public GameObject topOfLadder;
 
     private BoxCollider2D topCollider;
-    public Transform bottomOfLadder;
+    private BoxCollider2D bottomCollider;
+    public GameObject bottomOfLadder;
 
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.Find("Player");
+
         topOfLadder = GameObject.Find("top");
+        bottomOfLadder = GameObject.Find("bottom");
+
         topOfLadderPlatform = GameObject.Find("platformOnTopofLadder");
-        //playerScript = player.AddComponent<Player>();
 
         playerCollider = player.GetComponent<BoxCollider2D>();
+
         topCollider = topOfLadder.GetComponent<BoxCollider2D>();
+        bottomCollider = bottomOfLadder.GetComponent<BoxCollider2D>();
 
         playerController = player.GetComponent<CharacterController2D>();
 
@@ -34,13 +37,27 @@ public class LadderZone : MonoBehaviour
     {
         if (topCollider.IsTouching(playerCollider))
         {
-            Debug.Log(topCollider.IsTouching(playerCollider));
+            //Debug.Log(topCollider.IsTouching(playerCollider));
             gameObject.layer = 10;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             playerController.enabled = true;
             topOfLadderPlatform.SetActive(true);            
         }
 
+        else if (bottomCollider.IsTouching(playerCollider))
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            playerController.enabled = true;
+        }
+        else
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+        if (playerCollider.IsTouching(bottomCollider))
+        {
+
+        }
         
 
         //Debug.Log(topOfLadder.transform.position.y);
@@ -50,9 +67,7 @@ public class LadderZone : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            playerController.enabled = false;
-            //playerScript.OnLadder = true;
-
+           playerController.enabled = false;
         }
     }
 
@@ -61,7 +76,6 @@ public class LadderZone : MonoBehaviour
         if (other.name == "Player")
         {
             playerController.enabled = true;
-            //playerScript.OnLadder = false;
         }
     }
 }

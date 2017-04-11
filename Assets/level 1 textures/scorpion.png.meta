@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: 83f50ce49d61e2e4bac2f5e7ca092d48
-timeCreated: 1474399492
+timeCreated: 1490638663
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: scorpion_0
+    21300000: torso
+    21300002: scorpion_1
+    21300004: scorpion_2
+    21300006: scorpion_3
+    21300008: back legs
+    21300010: scorpion_5
+    21300012: scorpion_6
+    21300014: scorpion_7
+    21300016: front legs
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,13 +62,117 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scorpion_0
+      name: torso
       rect:
         serializedVersion: 2
-        x: 255
-        y: 0
-        width: 151
+        x: 263
+        y: 1
+        width: 144
         height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_1
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 102
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_2
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 28
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_3
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 61
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: back legs
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 0
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_5
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 33
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_6
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 9
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scorpion_7
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 9
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: front legs
+      rect:
+        serializedVersion: 2
+        x: 2235
+        y: 3
+        width: 29
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

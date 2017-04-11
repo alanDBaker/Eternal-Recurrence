@@ -16,6 +16,7 @@ public class GiveHealth : MonoBehaviour, IPlayerRespawnListener
 		if (player == null)
 			return;
 
+        // makes this gameobject invisible;
     	gameObject.SetActive(false);
 
 

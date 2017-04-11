@@ -12,10 +12,6 @@ public class NonShooterPlayer : MonoBehaviour
     public AudioClip DeathScream;
     public AudioClip JumpSound;
     public Animator Animator = null;
-    public bool OnLadder { get; set; }
-    public float climbSpeed;
-    private float climbVelocity;
-    private float gravityStore;
 
     // boilerPlate property for the C# 3.0 compiler. 
     public int Health { get; private set; }
@@ -143,21 +139,9 @@ public class NonShooterPlayer : MonoBehaviour
             AudioSource.PlayClipAtPoint(JumpSound, transform.position);
         }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            _controller.ClimbUp();
-        }
-
-        if (Input.GetKey(KeyCode.Z))
-        {
-            _controller.ClimbDown();
-        }
-
         if (Input.GetKey(KeyCode.DownArrow))
             Animator.SetTrigger("prone");
     }
-
-
 
     // reverse the localScale.x to either -1 or 1
     private void Flip()

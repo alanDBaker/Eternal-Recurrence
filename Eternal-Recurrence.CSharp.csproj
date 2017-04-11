@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\CharacterControllerEngage.cs" />
     <Compile Include="Assets\Scripts\CheckBatteries.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\CheckTinyTim.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\DoorPathway.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\ExtraLife.cs" />
     <Compile Include="Assets\Scripts\FinishLevel.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\FollowObject.cs" />
@@ -101,6 +103,8 @@
     <Compile Include="Assets\Scripts\LFnonShootEnemyHB.cs" />
     <Compile Include="Assets\Scripts\LadderZone.cs" />
     <Compile Include="Assets\Scripts\LeftFaceEnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Level3ControlPanel2.cs" />
+    <Compile Include="Assets\Scripts\Level3ControlPanelSwitch.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager2.cs" />

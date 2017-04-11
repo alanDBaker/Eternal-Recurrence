@@ -4,19 +4,19 @@
 public class ControlSwitchPanel2 : MonoBehaviour
 {
     private Animator theControlPanelSwitchAnimator;
-    private Animator[] theFalconFlameAnimator;
-    private GameObject[] theFalconFlame;
+    //private Animator[] theFalconFlameAnimators;
+    private GameObject[] theFalconFlames;
 
 
     // Use this for initialization
     void Start()
     {
-        theFalconFlame = GameObject.FindGameObjectsWithTag("Falcon Flame");
+        theFalconFlames = GameObject.FindGameObjectsWithTag("Falcon Flame");
         theControlPanelSwitchAnimator = GetComponent<Animator>();
-        //theFalconFlameAnimator = theFalconFlames
+
         theControlPanelSwitchAnimator.enabled = false;
 
-        foreach (GameObject FalconFlame in theFalconFlame)
+        foreach (GameObject FalconFlame in theFalconFlames)
         {
             FalconFlame.GetComponent<Animator>().enabled = true;
         }
@@ -31,20 +31,15 @@ public class ControlSwitchPanel2 : MonoBehaviour
         {
             theControlPanelSwitchAnimator.enabled = true;
             
-            foreach (GameObject FalconFlame in theFalconFlame)
+            foreach (GameObject FalconFlame in theFalconFlames)
             {
+                               
                 FalconFlame.GetComponent<Renderer>().enabled = false;
+                FalconFlame.SetActive(false);
+
+                //FalconFlame.GetComponent<BoxCollider>.enabled = false;
             }
 
         }
     }
-
-/*    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
-            //bouncingBettyAnimator.enabled = false; 
-        }
-    }
-    */
 }
